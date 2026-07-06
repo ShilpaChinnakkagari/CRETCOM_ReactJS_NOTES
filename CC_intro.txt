@@ -1,0 +1,53 @@
+I. UI/UX :
+=======
+    (a). User Interface :
+    ----------------------
+        User Interface (UI) is the visual and interactive part of a software application, website, or device through 
+        which users communicate and interact with the system.
+        --> It includes all elements such as buttons, menus, icons, text fields, layouts, and screens that allow users to input 
+            data and receive output from the system.
+
+                        bridge
+            USER   <================>     SYSTEM
+
+    (b). User Experience :
+    -----------------------
+
+
+
+
+History of React JS
+=====================
+Why React JS when we have html, css, JS
+--> formally developed by Facebook, now facebook incorporated by 'Meta'.
+--> problem arised, to overcome, they came up introducing framework -- react js
+--> hit a like, requires manual updation, which takes a lot of time to reload.(2013)
+--> two problems
+    ============
+    1. Manual updation, suppose a modification for a button, requires to reload the complete page
+        how this problem resolved by react JS :
+        ----------------------------------------
+        by providing components(divisible components).
+        JSX : Java Script XML 
+            external function to the interaction with the web page.
+            coding format 
+
+            Expected queston : what is the component based?
+
+            App.jsx <-- need of this?
+
+    2. component based of react JS.
+
+Framework :
+============
+
+
+
+How React JS is component based?
+=================================
+
+
+
+
+
+
