@@ -1,0 +1,216 @@
+I. State
+---------
+    State is a built-in React Object used to store data that can change over time when the state changes , React automatically
+    update (re-rendering the content) the UI 
+    --> stores one state object to another state object.
+    --> stores two states(current + next)
+
+syntax:
+-------
+import {useState} from "react";
+
+function ComponentName() {
+    const [stateName, setStateFunc] = useState(intialValOfstateName);
+
+    return(
+        <div>
+            {/* JSX */}
+        </div>
+    );
+}
+ 
+state = current value
+setState = Function to update the State
+useState() = creates the state
+intialValOfstateName = initial value of state
+
+Example:
+----------
+stateMgtCount.jsx
+-----------------
+
+import { useState } from "react";
+
+export function Count(){
+    const [count, setCount] = useState(0);
+    
+    return(
+        <div>
+            <h2>Count : {count} </h2>
+            <button onClick = {() => setCount(count+1)}> Increment </button>
+
+            <br/>
+            <br />
+            <button onClick = {() => setCount(count-1)}> Decrement </button>
+        </div>
+    )
+}
+
+main.jsx
+---------
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.jsx'
+import Class1 from './class2div.jsx'
+import Shopping  from './ChildFuncProduct.jsx'
+import {Count} from './stateMgmtCount.jsx'
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <Count />
+  </StrictMode>,
+)
+
+Explanation
+-------------
+1. To use state Management, we do need to import "useState" built in function/Component from React Framework
+2. In the block of code, we keep [vble, setStateFunc ] = useState(initialValOfvble)
+    We keep track of two states, one the initial value of variable at start , and the function to set State
+3. so we do print the content of vble we set,  using elements of html,
+   and when we trigger the setStateFunc, the content of vble gets updated by re-rendering
+
+
+** stateName:
+-------------
+    which holds current value. 
+
+** setStateName :
+--------------------
+    It defines an update function of the state.
+
+** useState Function :
+-----------------------
+    create a dynamic state or create a state and intitl value which stores initial data for each and every
+
+
+===============================================================================================================================
+Q7. Use Click and Reset buttons to change the content dynamically and clicking reset should get back to its original contents
+
+stateMgmtChnageTextOnClick.jsx
+--------------------------------
+import {useState} from "react";
+
+export function ChangeText(){
+    const temp = text;
+    const [text, ChangeText] = useState("Shilpa");
+
+    return(
+        <div>
+            <h2>Initial Text : {text}</h2>
+            <button onClick = {() => ChangeText("Hansika")}>Click</button>
+            <button onClick = {() => ChangeText(temp)}>Reset</button>
+        </div>
+    )
+}
+
+
+main.jsx
+--------
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.jsx'
+import Class1 from './class2div.jsx'
+import Shopping  from './ChildFuncProduct.jsx'
+import {ChangeText} from './stateMgmtChnageTextOnClick.jsx'
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <ChangeText />
+  </StrictMode>,
+)
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Problem: Why my method does not work for storing the previous state value?
+
+Code:
+-------
+const [text, ChangeText] = useState("Shilpa");
+const temp = text;
+
+<button onClick={() => ChangeText("Hansika")}>
+    Click
+</button>
+
+<button onClick={() => ChangeText(temp)}>
+    Reset
+</button>
+
+
+Why it fails:
+------------------
+Initially:
+text = "Shilpa"
+temp = "Shilpa"
+
+When Click button is pressed:
+
+ChangeText("Hansika")
+
+State updates:
+
+text = "Hansika"
+
+
+After state update, React re-renders the component.
+During re-render, the component function executes again:
+
+const temp = text;
+
+Now:
+------
+text = "Hansika"
+temp = "Hansika"
+
+
+The old value of temp ("Shilpa") is lost.
+
+So when Reset button is clicked:
+
+ChangeText(temp)
+
+actually becomes:
+
+ChangeText("Hansika")
+
+because temp currently stores "Hansika".
+
+
+Important Concept:
+---------------------
+Normal variables inside a React component are recreated on every render.
+
+Example:
+----------
+const temp = text;
+
+This does not permanently store the value.
+
+To store values between renders, use:
+
+1. useState()
+   - Stores data and updates UI
+
+2. useRef()
+   - Stores data without causing re-render
+
+
+Remember:
+
+Normal variable (let/const)  → Data lost after re-render
+useState                    → Data persists and updates UI
+useRef                      → Data persists without re-render
+
+
+Rule:
+Never use normal variables to store previous state values in React components.
+
+================================================================================================================================
+
+Q8. Write a JSX Script to perform state functionalitites using two scenarios 
+    (i) single click : The container color has to change to "violet"
+    (ii) double click : The container color has to go initial state
+
+    

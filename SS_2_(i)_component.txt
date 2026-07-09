@@ -1,0 +1,79 @@
+I. Component
+===============
+A Component is a reusable piece of UI in React. (where we are resuing: Main.jsx)
+--> Components helps to divide the application into small independent resuable parts.
+** Always start the function with Caps
+** always export the function.
+
+==================================================================================================================================================
+==================================================================================================================================================
+
+II. Types of Components
+===========================
+II(A). Functional Component :
+-------------------------------
+--> A functional component is a JavaScript function that returns JSX element
+
+syntax :
+--------
+function ComponentName(){
+    return(
+        <h1> Hello </h1>
+    );
+}
+export default ComponentName;
+
+==================================================================================================================================================
+==================================================================================================================================================
+
+III. Arrow Function as a Functional Component
+================================================
+syntax:
+----------
+const ComponentName = () => {
+    return(
+        <h1> React JS </h1>
+    );
+}
+
+export default ComponentName;
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q5. Perform arrow function in jsx and render it 
+
+example.js
+---------------
+const arrowRest = (...arr)=>{
+    let sum = 0;
+    for(let x of arr){
+        sum += x;
+    }
+    return(
+        <h1>Total Sum : {sum}</h1>
+    );
+}
+
+function ExportFunc(){
+    return(
+        <h1>Function call ArrowRest : {arrowRest(1,2,3,4)}</h1>
+    )
+}
+
+
+export default ExportFunc;
+
+Main.jsx
+-------------
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.jsx'
+import ExportFunc from './example.jsx'
+
+createRoot(document.getElementById('root')).arender(
+  <StrictMode>
+    <ExportFunc  />
+  </StrictMode>,
+)
+

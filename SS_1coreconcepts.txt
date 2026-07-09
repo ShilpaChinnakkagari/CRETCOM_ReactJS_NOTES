@@ -1,0 +1,266 @@
+
+============================================================================================================================
+============================================================================================================================
+*** NOTES ***
+============================================================================================================================
+============================================================================================================================
+Why React JS is introduced 
+----------------------------
+     The problems which are faced by the company, Facebook : Like button, User Profile, Messanger
+     whenever a user posted or like a post to page has to update that with JS manual HTML elements
+     and DOM, they take a lot time to make chnages when the app is deployed as dynamic.
+     --> Predominantly, the user has been increased , they get a catch to maintain UI of Facebook 
+         with the manual features of traditional JS to overcome this, they are introduced a framework : REACT JS
+         where the widely featured feature is Component where the developer can reuse the every piece of code,
+         which are all written in JSX format.
+
+    --> The another solution where the developer does not need to refresh the whole page, they can just make a 
+        component refreshment
+
+============================================================================================================================
+============================================================================================================================
+
+II. Features of React JS
+=========================
+1. Component Based 
+--------------------
+    React Applications are built using components, 
+    ==> A component is a reusable piece of User Interface element.
+        Example :
+        ----------
+        Consider a website which includes a html components which are all : navigation bar, side bar, content.
+
+2. Virtual DOM
+-----------------
+    React updates only the part of the web page that has changed instead of reloading entire page
+    Example :
+    -----------
+    Like functionality in Facebook or Instagram
+
+3. JSX
+------------
+    The file format where you can combine both (HTML + Java Script cope)
+    Example :
+    ---------
+    function App(){
+        return(
+            <div>
+                <h1>Hello React</h1>
+                <p>Welcome to ReactJS</p>
+            </div>
+        );
+    }
+    export default App;
+
+============================================================================================================================
+============================================================================================================================
+
+III. STEPS TO CREATE React JS Project using VITE
+=================================================
+--> npm create-react-app <AppName> is an older version of creating react project
+--> Modern Version
+    -----------------
+    Step -1 : Take folder/directory to the VS Code terminal.
+    Step -2 : Select command prompt 
+    Step -3 : command : 1. npm create vite@latest
+    Step -4 : Project Name : Enter proj name (In VS Code Terminal)
+    Step -5 : Package Name : Add package name (something as u like) (In VS Code Terminal)
+    Step -6 : Select a frame work : React
+    Step -7 : Select a Variant : JavaScript
+    Step -8 : Which linter to use : ESLint
+    Step -9 :  Install with npm and start now? Yes
+    Step -10: To run again (if terminated) ==> move to project path by using ( cd <projectName), and npm run dev 
+    Step - 11: To display short cuts:
+                (h + enter )
+
+                Available commands :
+                --------------------
+                r + Enter ==> Restart the server
+                u + Enter ==> To show the server url
+                o + Enter ==> To open in browser
+                c + Enter ==> To clear console
+                q + Enter ==> To Quit
+
+    1. npm create vite@latest
+    2. Project Name :- react-App
+    3. Package Name :- anything that you want
+    4. Select Framework :- React
+    5. Select a Variant :- JavaScript
+    6. Which linter to use :- Linter (ESLint)
+    7. Install with npm and start now :- yes
+    // 8. npm install (only if required)
+    9. npm run dev
+
+============================================================================================================================
+============================================================================================================================
+
+IV. JSX
+========
+  JSX is a syntax extension of HTML + JavaScript which allows write both html and js.
+  --> React uses JSX to display or describe the what should be displayed over the screen.
+  Basic Syntax:
+  --------------
+  function App(){ //create a functional Component //can rename function (component element)
+    return( //return JSX
+        <h1>Hello</h1> //JSX element
+    );
+  }
+  export default App; //Export the component.
+
+
+** function App()
+-----------------
+defines a react Component 
+
+** <h1>Shilpa</h1>
+-----------------
+A JSX element 
+
+** export default App;
+--------------------------
+It makes the component available for usage in another files.
+
+---------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------
+
+IV(A). JSX with Expression
+======================
+JSX Expressions are written inside curly braces { }.
+(or)
+An expression is anything that returns a value, such as:
+- a variable
+- a calculation
+- a function call
+- a string representation
+
+Syntax:
+----------------
+{ JS Expression }
+
+Example: Greet Hello with Name
+------------------------------
+const name = "Shilpa";
+
+function App() {
+  return (
+    <div>
+      <h1>Hello {name}</h1>
+    </div>
+  );
+}
+export default App;
+
+op : Hello Shilpa
+
+Example: Addition of Numbers
+--------------------------------
+function App() {
+  return (
+      <p>Sum: {5 + 10}</p>
+    </div>
+  );
+}
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+IV(B). Expression with Function:
+============================
+we can call the function which are written inside outer component using expression.
+
+syntax :
+---------
+{ functionName() }
+
+Example : 
+---------
+function App(){
+    function Hello(){
+        return "Hello Morning";
+    }
+    return <h1>{Hello()}</h1>
+}
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+IV(C). Expression with Ternary Operator:
+======================================
+The ternary operator is used in JSX for conditional rendering in a short form.
+--> It works like an if-else condition.
+
+Syntax:
+----------------
+{ condition ? expression1 : expression2 }
+
+Explanation:
+----------------
+- If condition is true → expression1 runs
+- If condition is false → expression2 runs
+
+Example :
+----------
+function App(){
+    const res = true;
+    return (
+        <h1> { res?"login":"Register" } </h1>
+        <h2>Ternary Operator </h2>
+    );
+}
+
+============================================================================================================================
+============================================================================================================================
+
+QUESTION :
+==========
+Q1. Create React APP with project name : practice and package name : com and peform all the basic operations with expression.
+(Write a React JS program to display a greeting message based on the time of
+the day using the ternary operator.)
+Path : C:\Users\chinn\OneDrive\Desktop\React _Proj\practice\src\App.jsx
+
+---------------------------------------------------------------------------------------------------------------------------
+
+Q2. Creation one file in src with extension .jsx , name: example.jsx , display contents from other file components
+C:\Users\chinn\OneDrive\Desktop\React _Proj\practice\src\example.jsx
+C:\Users\chinn\OneDrive\Desktop\React _Proj\practice\src\main.jsx
+
+============================================================================================================================
+
+Q3. Create a file in src : ReactVthParam.jsx and create a function that takes 2 parameters and return the content, and in 
+    main.jsx, invoke that function react component
+
+    funcParam.jsx
+    ----------------
+    function Param({id, name}){
+    return(
+        <div>
+            <h2>ID : {id}</h2>
+            <p>Name : {name}</p>
+        </div>
+
+    );
+}
+
+export default Param;
+
+
+ main.jsx
+ --------------
+ import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.jsx'
+import Param from './funcParam.jsx'
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <Param id="101" name="Shilpa"  />
+  </StrictMode>,
+)
+
+
+============================================================================================================================
+
+Q4. Write a function in existing JSX file (example.jsx) and that function includes with instruction of accessing simple student 
+object records and invoke that in main.jsx file. 
+(((PENDING...)))
+
+============================================================================================================================

@@ -1,0 +1,69 @@
+Q1. Create React APP with project name : practice and package name : com and peform all the basic operations with expression.
+(Write a React JS program to display a greeting message based on the time of
+the day using the ternary operator.)
+Path : C:\Users\chinn\OneDrive\Desktop\React _Proj\practice\src\App.jsx
+
+===============================================================================================================================
+
+Q2. Creation one file in src with extension .jsx , name: example.jsx , display contents from other file components
+Path : C:\Users\chinn\OneDrive\Desktop\React _Proj\practice\src\example.jsx
+Path : C:\Users\chinn\OneDrive\Desktop\React _Proj\practice\src\main.jsx
+
+===============================================================================================================================
+
+Q3. Create a file in src : ReactVthParam.jsx and create a function that takes 2 parameters and return the content, and in 
+    main.jsx, invoke that function react component
+    Path : C:\Users\chinn\OneDrive\Desktop\React _Proj\practice\src\example.jsx
+===============================================================================================================================
+
+Q4.
+
+===============================================================================================================================
+
+Q5.Perform arrow function in jsx and render it 
+
+example.js
+---------------
+const arrowRest = (...arr)=>{
+    let sum = 0;
+    for(let x of arr){
+        sum += x;
+    }
+    return(
+        <h1>Total Sum : {sum}</h1>
+    );
+}
+
+function ExportFunc(){
+    return(
+        <h1>Function call ArrowRest : {arrowRest(1,2,3,4)}</h1>
+    )
+}
+
+
+export default ExportFunc;
+
+Main.jsx
+-------------
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.jsx'
+import ExportFunc from './example.jsx'
+
+createRoot(document.getElementById('root')).arender(
+  <StrictMode>
+    <ExportFunc  />
+  </StrictMode>,
+)
+
+===============================================================================================================================
+
+Q6. Create a React JS application for an Online Shopping Store using components and props. Create a parent component 
+    Shopping that passes product details such as name, brand, price, rating, and button text to a child component Product. 
+    The Product component should display the received details using props and apply inline CSS styling to the product card.
+
+
+Q8. Write a JSX Script to perform state functionalitites using two scenarios 
+    (i) single click : The container color has to change to "violet"
+    (ii) double click : The container color has to go initial state

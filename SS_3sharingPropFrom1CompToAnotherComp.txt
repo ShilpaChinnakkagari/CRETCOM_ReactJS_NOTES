@@ -1,0 +1,208 @@
+I. Sharing Properties From One Component to Another Component
+=================================================================
+parentChild.jsx
+------------------
+import React, {Component} from "react";
+import {ParentExport} from './exportParent.jsx'; // (From Another File..)
+
+export class Child extends Component{
+    render(){
+        return(
+            <>
+            <div id="childID">
+                <h2 className="chd">Child Class Here...</h2>
+            </div>
+
+            <ParentExport /> // (Parent from Another file)
+            <Parent/>   // (Parent from Same file)
+            </>
+        );
+    }
+}
+
+
+export class Parent extends Component{
+    render(){
+        return(
+            <>
+            <div id="parentcls">
+                <h2 className="pt">Parent Class Here...</h2>
+            </div>
+            </>
+        );
+    }
+}
+
+main.jsx
+--------
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.jsx'
+import Class1 from './class2div.jsx'
+import {Child} from './parentChild.jsx'
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <Child />
+  </StrictMode>,
+)
+
+============================================================================================================================
+============================================================================================================================
+
+Props (Properties -- vbles)
+============================
+They make components as reusable and dynamic contents
+--> The Props are immutable and child Components cannot be modified and also we can pass different types of data.
+         to
+Parent ------> Child
+
+syntax:
+-------
+<childComponent prop1=value, prop2 = value /> <== Add this in Parent Component
+
+Example:
+--------
+Parent
+-------
+import Student from fileName
+function App(){
+    return(
+        <Student name="Tom" place="Mpl" />;
+    );
+}
+export default App;
+
+Child
+------
+function Student(props){
+    return(
+        <div>
+        <h1>Name: {props.name}</h1>
+        <h1>Place : {props.place} </h1>
+    );
+}
+
+Another Example:
+--------------------
+--------------------
+PropsChildParent.jsx
+---------------------
+function Child(props){
+    return(
+        <div>
+            <h1>Name: {props.name}</h1>
+            <h1>Place: {props.place}</h1>
+        </div>
+    );
+}
+
+function Parent(){
+    return(
+        <Child name="Tom" place="Mpl" />
+    );
+}
+
+export  {Parent};
+
+main.jsx
+--------
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.jsx'
+import Class1 from './class2div.jsx'
+import {Parent} from './PropsChildParent.jsx'
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <Parent />
+  </StrictMode>,
+)
+
+============================================================================================================================
+============================================================================================================================
+
+Q6. Create a React JS application for an Online Shopping Store using components and props. Create a parent component 
+    Shopping that passes product details such as name, brand, price, rating, and button text to a child component Product. 
+    The Product component should display the received details using props and apply inline CSS styling to the product card.
+
+ParentFuncShopping.jsx
+-----------------------
+function Product(props){
+    return(
+        <div
+            style={{
+                border: "2px solid black",
+                borderRadius: "10px",
+                padding: "15px",
+                margin: "15px",
+                width: "100px"
+            }}
+        >
+            <h2>{props.name}</h2>
+
+            <p>
+                <strong>Brand: </strong>
+                {props.brand}
+            </p>
+
+            <p>
+                <strong>Price: </strong>
+                {props.price}
+            </p>
+
+            <p>
+                <strong>Rating: </strong>
+                {props.rating}
+            </p>
+
+            <button>
+                {props.button}
+            </button>
+
+        </div>
+    );
+}
+
+export default Product;
+
+
+childFuncProduct
+----------------
+import Product from "./ParentFuncShopping";
+
+function Shopping(){
+    return(
+        <div>
+            <h1>Online Shopping Store</h1>
+
+            <Product 
+                name="Laptop"
+                brand="Dell"
+                price="50000"
+                rating="4.5"
+                button="Add to Cart"
+            />
+
+        </div>
+    );
+}
+
+export default Shopping;
+
+main.jsx
+---------
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.jsx'
+import Class1 from './class2div.jsx'
+import Shopping  from './ChildFuncProduct.jsx'
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <Shopping />
+  </StrictMode>,
+)

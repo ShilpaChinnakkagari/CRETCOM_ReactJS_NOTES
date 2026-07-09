@@ -1,0 +1,169 @@
+I. Rendering
+===============
+Accessing (or) Displaying contents over the UI.
+
+II. Conditional Rendering 
+=========================
+Conditional Rendering allows you to show or hide change contents based on the condition.
+
+III. Common Methods Of Conditional Rendering :
+===============================================
+(i) if....else....
+(ii) Ternary
+(iii) logical AND
+(iv) logical OR
+(v) Multiple Conditions
+
+III. (i) Example 1 : (Greater/Lesser) ==> Comparison
+-----------------------------
+function Con(){
+    const t= 10;
+    return(
+        if({t>10}){
+            <h1> Greater Than </h1>
+        }
+        else{
+            <h1> Less than </h1>
+        }
+    );
+}
+export default Con();
+
+
+III. (ii) Example 2 : (Login) ==> Conditonal 
+--------------------
+function Condition(){
+    const login = true;
+    if({login}){
+        return <h1> LogIn </h2>;
+    }
+    else{
+        return <h1> LogOut </h2>;
+    }
+}
+
+
+ternary
+------
+function ternary(){
+    cont login = true;
+    return(
+        {login} ? "Login" : "Logged Out";
+    );
+}
+
+
+III. (iii) Example 3 : (Login) ==> Logical AND
+------------------------------------
+Defintion 
+----------
+LOGICAL AND
+=============
+=============
+    Used to display the content when the condition is true, 
+    ==> IT acts like a true block if the user passing HTML tag (or) other than the boolean type.
+    ==> Internally it works as 
+            ---------------------------------------
+            | if(condition) {                     |
+            |    return ( <h1> Hello </h1> );     |
+            | }                                   |
+            ---------------------------------------
+
+function Login(){
+    const admin = true;
+
+    return(
+        <div>
+            {admin && <h2>Hello Admin</h2>}
+        </div>
+    );
+}
+
+export default Login;
+
+
+Defintion 
+----------
+III. (iv) LOGICAL OR
+=============
+=============
+    Used to show a Fall back value when the first value is false.
+
+FallBack :
+==========
+==========
+A Fallback value is a default value that is used when the original value is missing, empty (or)  false.
+
+Example :
+------------
+function Login(){
+
+    const isAdmin = true;
+    const username = "Shilpa";
+    const message = "";
+
+    return(
+        <div>
+
+            {/* && : Display only when condition is true */}
+            {isAdmin && <h2>Welcome Admin</h2>}
+
+
+            {/* || : Display fallback when value is empty */}
+            {username || <h2>No Username Found</h2>}
+
+
+            {/* || : Since message is empty, fallback will display */}
+            {message || <h2>No Message Available</h2>}
+
+        </div>
+    );
+}
+
+export default Login;
+
+output
+------
+Welcome Admin
+Shilpa
+No Message Available
+
+===========
+Q9. WAJSX script to demonstrate ternary operator using form type button by adding the functionality for two buttons with
+different accession properties of event handlers
+
+
+
+
+========
+III. (v) Adding Mutliple Conditions
+======================================
+======================================
+condition1 ? 
+    (condition2 ? 
+        (condition3 ? 
+            "Condition1, Condition2, Condition3 are true" :
+            "Condition1 and Condition2 true, Condition3 false"
+        ) :
+        "Condition1 true, Condition2 false"
+    ) :
+    "Condition1 false";
+
+(or)
+
+if (condition1) {
+    if (condition2) {
+        if (condition3) {
+            // if condition1, condition2, condition3 are true
+        } 
+        else {
+            // if condition1 and condition2 are true, but condition3 is false
+        }
+    } 
+    else {
+        // if condition1 is true, but condition2 is false
+    }
+} 
+else {
+    // if condition1 is false
+}

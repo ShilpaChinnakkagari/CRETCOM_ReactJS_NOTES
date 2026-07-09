@@ -1,0 +1,72 @@
+I. Event Handling
+==================
+Event Handling is the process of handling all the events which are all performed action things.
+(or)
+Event Handling is the process of responding to the user actions such as clicking button, inout type , submit, mouse events
+--> we can implement using arrow functions or event handler
+
+syntax :
+--------
+<element eventHandler = {
+    function call/content
+}> Content </element>
+
+// mouseup function -- sleepy, did not do it 
+mouseup.jsx
+-------------
+
+export function MouseUpButton(){
+
+    const content = () => {
+        alert("Mouse button released");
+    };
+
+    return(
+        <div>
+            <button onMouseUp={content}>
+                Press Me
+            </button>
+        </div>
+    );
+}
+
+main.jsx
+----------
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.jsx'
+import Class1 from './class2div.jsx'
+import Shopping  from './ChildFuncProduct.jsx'
+import {MouseUpButton} from './mouseupFunc.jsx'
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <MouseUpButton />
+  </StrictMode>,
+)
+
+
+II. Common Event Handler in React
+===================================
+1. onClick
+2. onDoubleClick
+3. onChange
+4. onSubmit
+5. onKeyDown
+6. onKeyUp
+7. onFocus : triggered when an element gains focus.
+8. onMouseDown 
+9. onMouseUp
+10. onCopy : content to copied
+11. onCut : content to be cut
+12. onPaste : Content is pasted
+
+
+onSubmit -- do it, sleepy (pic taken at 12 : 25 pm)
+
+
+Q. write a jsx script to demonstarte event handler of copy paste current
+do it, sleepy --- ctrl + c, display content copied, ctrl + c, cut text prompt, pasted has to display content pasted
+use input box
+(pic taken at 12 : 44pm)
