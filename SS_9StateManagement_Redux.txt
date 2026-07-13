@@ -1,0 +1,38 @@
+I. State Management
+=====================
+    ==> State is an object that determines how an  application behaves and what displayed on the screen
+
+II. State Management
+=========================
+    ==> IT is the process of storing, updating and sharing this data across different components
+
+III. Redux
+============
+    ==> It is a JavaScript Library used to managing application state (a) in a predictable and centralized way
+        which is introduced in 2018.
+
+    **** IT keeps all the Components shared data in a single place called "STORE".
+
+    ==========                ==========                  ==========
+    Component 1 (nav)         Component2 (Home Page)      Component3 (Cart)
+    ==========                ==========                  ==========
+        |                          |                       |
+            |                      |                     |
+                |                  |                   |
+         data       |              |                |
+      generated          |         |            |
+      via action            |      |        |
+        by user                |   |   |
+                                ==========       
+                                  Store        For entire React Application
+                                ==========  
+                    ==> Single place where data stores...
+
+Q12. Create two functional Component with two variables and call that functional component over the exporting 
+     component by using React Hook.
+
+     // cartcount, addtocart
+     --> when click on addtocart, cartcount should be incremented
+
+Q13. create a user authentication form in react by validating with JSX components and also style that all the elements of html
+    and not in global styling file 

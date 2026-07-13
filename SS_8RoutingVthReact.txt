@@ -1,0 +1,139 @@
+I. Routing With React
+=========================
+Routing is the process of navigating between different components in a React application with out reloading the entire page
+==> Traditionally without React, the client side scripts, navigating the entire web page or website.
+
+II. React Router
+=================
+is a library that enables navigation between different components in a react application
+
+import : import { createRoot } from 'react-dom/client'
+react router : 
+---------------
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <Component1 />
+    <Component2 />
+  </StrictMode>
+)
+
+III. Common Components in Router
+=================================
+1. BrowserRouter
+-------------------
+    wraps up the application and enables for Routing
+
+2. Routes
+----------
+Contains all Route defintion
+
+3. Link
+---------
+Navigates without page reload.
+
+4. Route
+--------
+maps an URL to a component
+
+5. path = "*"
+---------------
+handles 404 pages 
+
+6.createRoot
+------------
+Method or Component that tells the React Application to render the HTML page 
+
+Q11. Write a JSX Script to demonstrate useEffect by providing multiple dependencies as follows:
+     (i) text change
+     (ii) use two different keyboard events to add the dependency over useEffect to display the content over 
+        console in the webpage.
+
+
+Method - 1 (Without using useEffect -- partial)
+keyBoardEventConsole.jsx
+------------------------
+export function KeyFunc(){
+
+    function keyPressFunction(event){
+        console.log("Event Name : " + event.key)
+    }
+    
+    return(
+        <div>
+            <input id="ip" type="text" placeholder="Enter something" onKeyUp={keyPressFunction}/>
+        </div>
+    )
+}
+
+main.jsx
+--------
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.jsx'
+import Class1 from './class2div.jsx'
+import Shopping  from './ChildFuncProduct.jsx'
+import {KeyFunc} from './keyBoardEventConsole.jsx'
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <KeyFunc />
+  </StrictMode>,
+)
+
+Method - 2 (USing useEffect)
+-----------
+keyBoardEventConsole.jsx
+------------------------
+import { useState, useEffect } from "react";
+
+function MultipleDependency() {
+
+    const [text, setText] = useState("");
+    const [keyUp, setKeyUp] = useState("");
+    const [keyDown, setKeyDown] = useState("");
+
+    useEffect(() => {
+
+        console.log("Text Changed :", text);
+        console.log("Key Up :", keyUp);
+        console.log("Key Down :", keyDown);
+
+    }, [text, keyUp, keyDown]);
+
+
+    return (
+        <div>
+
+            <h2>useEffect Multiple Dependencies</h2>
+
+            <input
+                type="text"
+                placeholder="Enter something"
+                onChange={(e) => setText(e.target.value)}
+                onKeyUp={(e) => setKeyUp(e.key)}
+                onKeyDown={(e) => setKeyDown(e.key)}
+            />
+
+        </div>
+    );
+}
+
+export {MultipleDependency};
+
+main.jsx
+-----------
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.jsx'
+import Class1 from './class2div.jsx'
+import Shopping  from './ChildFuncProduct.jsx'
+import {MultipleDependency} from './keyBoardEventConsole.jsx'
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <MultipleDependency />
+  </StrictMode>,
+)
+

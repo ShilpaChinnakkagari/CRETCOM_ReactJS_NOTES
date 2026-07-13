@@ -167,3 +167,63 @@ if (condition1) {
 else {
     // if condition1 is false
 }
+
+===================================================================================================================
+
+Q10. Create a functional component using React Hook , useState to perform an action or changing one state to another
+     state 
+
+(1. using by setting variables)
+--------------------------------
+state2stateFunc.jsx
+---------------------
+import {useState} from "react";
+
+export function StateChange(){
+    const initialVble = "Shilpa";
+    const [vble, setState] = useState(initialVble);
+
+    return(
+        <div>
+            <h2>Name : {vble} </h2>
+            <button onClick = {() => setState("Aplish")}>Click</button>
+            <button onClick = {() => setState(initialVble)}>Reset</button>
+        </div>
+    )
+}
+
+main.jsx
+--------
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.jsx'
+import Class1 from './class2div.jsx'
+import Shopping  from './ChildFuncProduct.jsx'
+import {StateChange} from './State2StateFunc.jsx'
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <StateChange />
+  </StrictMode>,
+)
+
+
+(2. using by Object creation)
+------------------------------
+import {useState} from "react";
+
+export function StateChange(){
+    const initialObj = {
+        name : "Shilpa",
+    };
+    const [vble, setState] = useState(initialObj); // initial state of object
+
+    return(
+        <div>
+            <h2>Name : {vble.name } </h2>
+            <button onClick = {() => setState({name: "Aplish"})}>Click</button>
+            <button onClick = {() => setState({name : initialObj.name})}>Reset</button>
+        </div>
+    )
+}

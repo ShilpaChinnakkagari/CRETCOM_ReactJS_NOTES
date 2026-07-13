@@ -1,0 +1,98 @@
+I. React Hooks
+===============
+are the built-in functions that used to allow a functional component to use state, life-cycle methods and other features
+
+Example :
+=========
+useEffectFunc.jsx
+---------------------
+import {useState, useEffect} from "react";
+
+export function UseEffectFunction(){
+    const [count, setCount] = useState(0);
+
+    useEffect(()=>{
+        document.title = `Count: ${count}`;
+        console.log(`Count Updated ${count}`);
+    }, [count]);
+
+
+    return(
+        <div>
+            <h2>Count : {count} </h2>
+            <button onClick = { () => setCount(count+1)}>Increment</button>
+        </div>
+    )
+}
+
+main.jsx
+---------
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.jsx'
+import Class1 from './class2div.jsx'
+import Shopping  from './ChildFuncProduct.jsx'
+import {UseEffectFunction} from './useEffectFunc.jsx'
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <UseEffectFunction />
+  </StrictMode>,
+)
+
+
+II. Dependency array in useEffect
+=================================
+tells the react when the effect should runs.
+
+--> No dependency array
+    --------------------
+    useEffect( ()=> {
+        document.title = `Count : ${count}`;
+        console.log(`Count  updated : ${count}`);
+    });
+
+    ==> Everytime the component renders the Effects runs.
+
+    console output :
+    ----------------
+    Count updated : 1
+    Count updated : 2
+    Count updated : 3
+    Count updated : 4
+     ..........
+
+--> Empty dependency
+    --------------------
+    useEffect( () => {
+        console.log(`Count Updated : ${count}`);
+    }, []); //empty dependency
+
+    ==> Runs only once after the component is rendered.
+
+    console output :
+    ----------------
+    Count Updated : 1
+
+--> Single Dependency
+    --------------------
+    useEffect( () => {
+        document.title = `Count : ${count}`;
+        console.log(`Count  updated : ${count}`);
+    }, [count]);
+    
+    ==> runs after the first render when ever the count chnages
+
+--> Multiple Dependencies
+    ----------------------
+    useEffect( () => {
+        document.title = `Count : ${count}`;
+        console.log(`Count  updated : ${count}`);
+
+        document.title = `Count : ${count1}`;
+        console.log(`Count  updated : ${count1}`);
+    }, [count, count1]);
+
+    ==> after the 1st render, when either any one of the dependency is changing its state
+        i.e., 

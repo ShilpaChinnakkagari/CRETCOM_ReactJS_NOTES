@@ -67,3 +67,11 @@ Q6. Create a React JS application for an Online Shopping Store using components 
 Q8. Write a JSX Script to perform state functionalitites using two scenarios 
     (i) single click : The container color has to change to "violet"
     (ii) double click : The container color has to go initial state
+
+Q10. Create a functional component using React Hook , useStateto perform an action or changing one state to another
+     state 
+
+Q11. Write a JSX Script to demonstrate useEffect by providing multiple dependencies as follows:
+     (i) text change
+     (ii) use two different keyboard events to add the dependency over useEffect to display the content over 
+        console in the webpage.
