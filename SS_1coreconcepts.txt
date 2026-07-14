@@ -216,11 +216,126 @@ Q1. Create React APP with project name : practice and package name : com and pef
 the day using the ternary operator.)
 Path : C:\Users\chinn\OneDrive\Desktop\React _Proj\practice\src\App.jsx
 
+Basic Operations
+====================
+import React from "react";
+
+function App() {
+
+  let a = 15;
+  let b = 5;
+
+  return (
+    <div>
+
+      <h1>React JS Expressions</h1>
+
+      <h2>Arithmetic Operations</h2>
+
+      <p>Addition : {a + b}</p>
+      <p>Subtraction : {a - b}</p>
+      <p>Multiplication : {a * b}</p>
+      <p>Division : {a / b}</p>
+      <p>Modulus : {a % b}</p>
+
+      <h2>String Expression</h2>
+
+      <p>
+        {"Hello " + "React JS"}
+      </p>
+
+
+      <h2>Variable Expression</h2>
+
+      <p>
+        Value of A : {a}
+      </p>
+
+      <p>
+        Value of B : {b}
+      </p>
+
+
+      <h2>Conditional Expression</h2>
+
+      <p>
+        {a > b ? "A is Greater" : "B is Greater"}
+      </p>
+
+
+      <h2>Array Expression</h2>
+
+      <p>
+        {["HTML", "CSS", "React"][2]}
+      </p>
+
+
+      <h2>Object Expression</h2>
+
+      <p>
+        Student Name : {({name:"Shilpa", age:21}).name}
+      </p>
+
+    </div>
+  );
+}
+
+export default App;
+
 ---------------------------------------------------------------------------------------------------------------------------
 
 Q2. Creation one file in src with extension .jsx , name: example.jsx , display contents from other file components
 C:\Users\chinn\OneDrive\Desktop\React _Proj\practice\src\example.jsx
 C:\Users\chinn\OneDrive\Desktop\React _Proj\practice\src\main.jsx
+
+
+1. Normal Function
+function EvngMsg(){
+    return(
+        <h1>This is evening</h1>
+    );
+}
+
+2. Setters
+export function Student({id, name}){
+
+    return(
+        <div>
+            <h2>Name: {name}</h2>
+            <h2>ID: {id}</h2>
+        </div>
+    );
+}
+
+3. Arrow Function
+export const arrowFunc = ()=> {
+
+    return(
+        <h2>Hello Shilpa, I am just an Arrow Function</h2>
+    );
+
+}
+
+4. Arrow Function and Rest Parameter
+export const ArrowRest = (...arr)=>{
+
+    let sum = 0;
+
+    for(let x of arr){
+        sum += x;
+    }
+
+    return(
+        <h1>
+            I am an Arrow Rest Param Function
+            <br/>
+            Total Sum : {sum}
+        </h1>
+    );
+
+}
+
+render = {ArrowRest(1,2,3,4)}
 
 ============================================================================================================================
 
@@ -261,6 +376,30 @@ createRoot(document.getElementById('root')).render(
 
 Q4. Write a function in existing JSX file (example.jsx) and that function includes with instruction of accessing simple student 
 object records and invoke that in main.jsx file. 
-(((PENDING...)))
+
+
+export function StudentDetails(){
+
+    const student = {
+        id: 101,
+        name: "Shilpa",
+        branch: "AI",
+        year: "3rd Year"
+    };
+
+
+    return(
+        <div>
+
+            <h1>Student Details</h1>
+
+            <h2>ID : {student.id}</h2>
+            <h2>Name : {student.name}</h2>
+            <h2>Branch : {student.branch}</h2>
+            <h2>Year : {student.year}</h2>
+
+        </div>
+    );
+}
 
 ============================================================================================================================

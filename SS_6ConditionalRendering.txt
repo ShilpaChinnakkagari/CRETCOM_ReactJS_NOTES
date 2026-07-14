@@ -14,6 +14,7 @@ III. Common Methods Of Conditional Rendering :
 (iv) logical OR
 (v) Multiple Conditions
 
+
 III. (i) Example 1 : (Greater/Lesser) ==> Comparison
 -----------------------------
 function Con(){
@@ -132,6 +133,57 @@ No Message Available
 Q9. WAJSX script to demonstrate ternary operator using form type button by adding the functionality for two buttons with
 different accession properties of event handlers
 
+import { useState } from "react";
+
+function App(){
+
+    const [status, setStatus] = useState(false);
+
+
+    function showLogin(){
+        setStatus(true);
+    }
+
+
+    function showLogout(){
+        setStatus(false);
+    }
+
+
+    return(
+        <div>
+
+            <h1>
+                {
+                    status ? "Welcome User" : "Please Login"
+                }
+            </h1>
+
+
+            <form>
+
+                <button 
+                    type="button"
+                    onClick={showLogin}
+                >
+                    Login
+                </button>
+
+
+                <button
+                    type="button"
+                    onClick={showLogout}
+                >
+                    Logout
+                </button>
+
+            </form>
+
+        </div>
+    );
+}
+
+export default App;
 
 
 

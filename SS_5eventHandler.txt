@@ -70,3 +70,344 @@ Q. write a jsx script to demonstarte event handler of copy paste current
 do it, sleepy --- ctrl + c, display content copied, ctrl + c, cut text prompt, pasted has to display content pasted
 use input box
 (pic taken at 12 : 44pm)
+
+
+
+import React, { useState } from "react";
+
+function EventsDemo(){
+
+    const [text, setText] = useState("");
+
+
+    return(
+        <div>
+
+            <h1>React Event Handlers</h1>
+
+
+            {/* 1. onClick */}
+            <button onClick={() => alert("Button Clicked")}>
+                Click
+            </button>
+
+
+            <br/><br/>
+
+
+            {/* 2. onDoubleClick */}
+            <button onDoubleClick={() => alert("Double Clicked")}>
+                Double Click
+            </button>
+
+
+            <br/><br/>
+
+
+            {/* 3. onChange */}
+            <input 
+                type="text"
+                onChange={(e) => setText(e.target.value)}
+                placeholder="Type something"
+            />
+
+            <h3>{text}</h3>
+
+
+            {/* 4. onSubmit */}
+            <form 
+                onSubmit={(e) => {
+                    e.preventDefault();
+                    alert("Form Submitted");
+                }}
+            >
+                <button type="submit">
+                    Submit
+                </button>
+            </form>
+
+
+            <br/>
+
+
+            {/* 5. onKeyDown */}
+            <input
+                onKeyDown={() => alert("Key Down")}
+                placeholder="Press Key Down"
+            />
+
+
+            <br/><br/>
+
+
+            {/* 6. onKeyUp */}
+            <input
+                onKeyUp={() => alert("Key Up")}
+                placeholder="Press Key Up"
+            />
+
+
+            <br/><br/>
+
+
+            {/* 7. onFocus */}
+            <input
+                onFocus={() => alert("Input Focused")}
+                placeholder="Click inside"
+            />
+
+
+            <br/><br/>
+
+
+            {/* 8. onMouseDown */}
+            <div
+                onMouseDown={() => alert("Mouse Down")}
+                style={{
+                    width:"150px",
+                    height:"50px",
+                    border:"1px solid black"
+                }}
+            >
+                Mouse Down Area
+            </div>
+
+
+            <br/>
+
+
+            {/* 9. onMouseUp */}
+            <div
+                onMouseUp={() => alert("Mouse Up")}
+                style={{
+                    width:"150px",
+                    height:"50px",
+                    border:"1px solid black"
+                }}
+            >
+                Mouse Up Area
+            </div>
+
+
+            <br/>
+
+
+            {/* 10. onCopy */}
+            <p
+                onCopy={() => alert("Content Copied")}
+            >
+                Copy this text
+            </p>
+
+
+            {/* 11. onCut */}
+            <input
+                defaultValue="Cut this text"
+                onCut={() => alert("Content Cut")}
+            />
+
+
+            <br/><br/>
+
+
+            {/* 12. onPaste */}
+            <input
+                onPaste={() => alert("Content Pasted")}
+                placeholder="Paste here"
+            />
+
+        </div>
+    );
+}
+
+export default EventsDemo;
+
+
+===============
+import React, { useState } from "react";
+
+function EventsDemo(){
+
+    const [text, setText] = useState("");
+
+
+    // Event Handler Functions
+
+    const clickHandler = () => {
+        alert("Button Clicked");
+    };
+
+
+    const doubleClickHandler = () => {
+        alert("Double Clicked");
+    };
+
+
+    const changeHandler = (event) => {
+        setText(event.target.value);
+    };
+
+
+    const submitHandler = (event) => {
+        event.preventDefault();
+        alert("Form Submitted");
+    };
+
+
+    const keyDownHandler = () => {
+        alert("Key Down");
+    };
+
+
+    const keyUpHandler = () => {
+        alert("Key Up");
+    };
+
+
+    const focusHandler = () => {
+        alert("Element Focused");
+    };
+
+
+    const mouseDownHandler = () => {
+        alert("Mouse Down");
+    };
+
+
+    const mouseUpHandler = () => {
+        alert("Mouse Up");
+    };
+
+
+    const copyHandler = () => {
+        alert("Content Copied");
+    };
+
+
+    const cutHandler = () => {
+        alert("Content Cut");
+    };
+
+
+    const pasteHandler = () => {
+        alert("Content Pasted");
+    };
+
+
+    return(
+        <div>
+
+            <h1>React Event Handlers</h1>
+
+
+            <button onClick={clickHandler}>
+                Click
+            </button>
+
+
+            <br/><br/>
+
+
+            <button onDoubleClick={doubleClickHandler}>
+                Double Click
+            </button>
+
+
+            <br/><br/>
+
+
+            <input
+                type="text"
+                onChange={changeHandler}
+                placeholder="Enter text"
+            />
+
+            <h3>{text}</h3>
+
+
+            <form onSubmit={submitHandler}>
+
+                <button type="submit">
+                    Submit
+                </button>
+
+            </form>
+
+
+            <br/>
+
+
+            <input
+                onKeyDown={keyDownHandler}
+                placeholder="Key Down"
+            />
+
+
+            <br/><br/>
+
+
+            <input
+                onKeyUp={keyUpHandler}
+                placeholder="Key Up"
+            />
+
+
+            <br/><br/>
+
+
+            <input
+                onFocus={focusHandler}
+                placeholder="Focus"
+            />
+
+
+            <br/><br/>
+
+
+            <div 
+                onMouseDown={mouseDownHandler}
+                style={{border:"1px solid black", width:"150px"}}
+            >
+                Mouse Down
+            </div>
+
+
+            <br/>
+
+
+            <div
+                onMouseUp={mouseUpHandler}
+                style={{border:"1px solid black", width:"150px"}}
+            >
+                Mouse Up
+            </div>
+
+
+            <br/>
+
+
+            <p onCopy={copyHandler}>
+                Copy this text
+            </p>
+
+
+            <input
+                defaultValue="Cut this text"
+                onCut={cutHandler}
+            />
+
+
+            <br/><br/>
+
+
+            <input
+                onPaste={pasteHandler}
+                placeholder="Paste here"
+            />
+
+
+        </div>
+    );
+}
+
+export default EventsDemo;

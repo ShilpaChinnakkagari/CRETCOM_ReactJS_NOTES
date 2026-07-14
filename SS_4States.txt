@@ -213,4 +213,59 @@ Q8. Write a JSX Script to perform state functionalitites using two scenarios
     (i) single click : The container color has to change to "violet"
     (ii) double click : The container color has to go initial state
 
+
+import React, { useState } from "react";
+
+function ColorChange(){
+
+    // Initial state
+    const initialColor = "white";
+    const [color, setColor] = useState(initialColor);
+
+
+    // Single click function
+    function changeColor(){
+        setColor("violet");
+    }
+
+
+    // Double click function
+    function resetColor(){
+        setColor(initialColor);
+    }
+
+
+    return(
+        <div>
+
+            <h1>State Functionality</h1>
+
+            <div
+                style={{
+                    width:"300px",
+                    height:"200px",
+                    border:"2px solid black",
+                    backgroundColor: color,
+                    textAlign:"center",
+                    padding:"20px"
+                }}
+
+                onClick={changeColor}
+
+                onDoubleClick={resetColor}
+            >
+
+                <h2>Click / Double Click</h2>
+
+                <p>
+                    Current Color : {color}
+                </p>
+
+            </div>
+
+        </div>
+    );
+}
+
+export default ColorChange;
     

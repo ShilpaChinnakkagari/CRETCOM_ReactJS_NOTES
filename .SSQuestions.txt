@@ -3,20 +3,225 @@ Q1. Create React APP with project name : practice and package name : com and pef
 the day using the ternary operator.)
 Path : C:\Users\chinn\OneDrive\Desktop\React _Proj\practice\src\App.jsx
 
+Basic Operations
+====================
+import React from "react";
+
+function App() {
+
+  let a = 15;
+  let b = 5;
+
+  return (
+    <div>
+
+      <h1>React JS Expressions</h1>
+
+      <h2>Arithmetic Operations</h2>
+
+      <p>Addition : {a + b}</p>
+      <p>Subtraction : {a - b}</p>
+      <p>Multiplication : {a * b}</p>
+      <p>Division : {a / b}</p>
+      <p>Modulus : {a % b}</p>
+
+      <h2>String Expression</h2>
+
+      <p>
+        {"Hello " + "React JS"}
+      </p>
+
+
+      <h2>Variable Expression</h2>
+
+      <p>
+        Value of A : {a}
+      </p>
+
+      <p>
+        Value of B : {b}
+      </p>
+
+
+      <h2>Conditional Expression</h2>
+
+      <p>
+        {a > b ? "A is Greater" : "B is Greater"}
+      </p>
+
+
+      <h2>Array Expression</h2>
+
+      <p>
+        {["HTML", "CSS", "React"][2]}
+      </p>
+
+
+      <h2>Object Expression</h2>
+
+      <p>
+        Student Name : {({name:"Shilpa", age:21}).name}
+      </p>
+
+    </div>
+  );
+}
+
+export default App;
+
 ===============================================================================================================================
 
 Q2. Creation one file in src with extension .jsx , name: example.jsx , display contents from other file components
 Path : C:\Users\chinn\OneDrive\Desktop\React _Proj\practice\src\example.jsx
 Path : C:\Users\chinn\OneDrive\Desktop\React _Proj\practice\src\main.jsx
 
+1. Normal Function
+function EvngMsg(){
+    return(
+        <h1>This is evening</h1>
+    );
+}
+
+2. Parameters
+export function Student({id, name}){
+
+    return(
+        <div>
+            <h2>Name: {name}</h2>
+            <h2>ID: {id}</h2>
+        </div>
+    );
+}
+
+3. Arrow Function
+export const arrowFunc = ()=> {
+
+    return(
+        <h2>Hello Shilpa, I am just an Arrow Function</h2>
+    );
+
+}
+
+4. Arrow Function and Rest Parameter
+export const ArrowRest = (...arr)=>{
+
+    let sum = 0;
+
+    for(let x of arr){
+        sum += x;
+    }
+
+    return(
+        <h1>
+            I am an Arrow Rest Param Function
+            <br/>
+            Total Sum : {sum}
+        </h1>
+    );
+
+}
+
+render = {ArrowRest(1,2,3,4)}
+
+==================================================================================================================================
+
+Getters and Setters in React
+=================================
+import { useState } from "react";
+
+function Student(){
+
+    // state variable (getter)
+    const [name, setName] = useState("Shilpa");
+
+
+    // setter function
+    function changeName(){
+        setName("Anu");
+    }
+
+
+    return(
+        <div>
+
+            <h1>Getter and Setter in Function Component</h1>
+
+            {/* Getter */}
+            <h2>Name : {name}</h2>
+
+
+            {/* Setter */}
+            <button onClick={changeName}>
+                Change Name
+            </button>
+
+        </div>
+    );
+}
+
+export default Student;
+
 ===============================================================================================================================
 
 Q3. Create a file in src : ReactVthParam.jsx and create a function that takes 2 parameters and return the content, and in 
     main.jsx, invoke that function react component
     Path : C:\Users\chinn\OneDrive\Desktop\React _Proj\practice\src\example.jsx
+
+    // Function to access student object records
+
+export function StudentDetails(){
+
+    const student = {
+        id: 101,
+        name: "Shilpa",
+        branch: "AI",
+        year: "3rd Year"
+    };
+
+
+    return(
+        <div>
+
+            <h1>Student Details</h1>
+
+            <h2>ID : {student.id}</h2>
+            <h2>Name : {student.name}</h2>
+            <h2>Branch : {student.branch}</h2>
+            <h2>Year : {student.year}</h2>
+
+        </div>
+    );
+}
 ===============================================================================================================================
 
-Q4.
+Q4. Write a function in existing JSX file (example.jsx) and that function includes with instruction of accessing simple student 
+object records and invoke that in main.jsx file. 
+
+
+export function StudentDetails(){
+
+    const student = {
+        id: 101,
+        name: "Shilpa",
+        branch: "AI",
+        year: "3rd Year"
+    };
+
+
+    return(
+        <div>
+
+            <h1>Student Details</h1>
+
+            <h2>ID : {student.id}</h2>
+            <h2>Name : {student.name}</h2>
+            <h2>Branch : {student.branch}</h2>
+            <h2>Year : {student.year}</h2>
+
+        </div>
+    );
+}
+
 
 ===============================================================================================================================
 
@@ -59,6 +264,38 @@ createRoot(document.getElementById('root')).arender(
 
 ===============================================================================================================================
 
+Q6. Write a JSX snippet to create class Component as an Example by instrcuting inside the render method has to access the variable which are
+declared with expression 
+
+import React, { Component } from "react";
+
+class Student extends Component {
+
+    render(){
+
+        // Variables declared inside render method
+        let name = "Shilpa";
+        let id = 101;
+
+
+        return(
+            <div>
+
+                <h1>Student Details</h1>
+                {/* Accessing variables using JSX expression */}
+                <h2>Name : {name}</h2>
+                <h2>ID : {id}</h2>
+
+            </div>
+        );
+    }
+
+}
+
+export default Student;
+
+===================================================================================================================================
+
 Q6. Create a React JS application for an Online Shopping Store using components and props. Create a parent component 
     Shopping that passes product details such as name, brand, price, rating, and button text to a child component Product. 
     The Product component should display the received details using props and apply inline CSS styling to the product card.
@@ -75,3 +312,5 @@ Q11. Write a JSX Script to demonstrate useEffect by providing multiple dependenc
      (i) text change
      (ii) use two different keyboard events to add the dependency over useEffect to display the content over 
         console in the webpage.
+
+

@@ -2,15 +2,18 @@ I. Class Component
 =======================
 A Class Component is a way of creating the components in React using an ES6 class.
 --> It can manage it's own state and life cycle methods
+    i.e., A React component can maintain its own data using state and perform actions 
+    automatically when it is created, updated, or removed using lifecycle methods.
+        (mounting, unmounting, updating)
 
 Example:
 --------
 import React, {Component} from "react";
 
 class Welcome extends Component {
-    render(
-        return <h1> Hello , world</h1>
-    );
+    render(){
+        return <h1> Hello , world</h1>;
+    }    
 }
 export default Welcome;
 
@@ -22,7 +25,7 @@ II. STEPS to Create Class
 1. Import Component class from React Framework
     ==> import React, {Component} from "react";
 2. Inherit the properties from the class : Component  using 'extends' key word.
-3. And access the render() method which is present in component class , which perform the functionality of displaying 
+3. And access the render() method which is present in Component class , which perform the functionality of displaying 
     JSX element to UI.
 
     render() methods
@@ -35,14 +38,14 @@ II. STEPS to Create Class
     -----------------
     import React, {Component} from "react";
 
-class Welcome extends Component{
-    render(){
-        return(
-            <h1>Hello, World</h1>
-        );
+    class Welcome extends Component{
+        render(){
+            return(
+                <h1>Hello, World</h1>
+            );
+        }
     }
-}
-export default Welcome;
+    export default Welcome;
 
 Main.jsx
 ----------
@@ -64,10 +67,151 @@ createRoot(document.getElementById('root')).render(
 Q6. Write a JSX snippet to create class Component as an Example by instrcuting inside the render method has to access the variable which are
 declared with expression 
 
+import React, { Component } from "react";
+
+class Student extends Component {
+
+    render(){
+
+        // Variables declared inside render method
+        let name = "Shilpa";
+        let id = 101;
+
+        return(
+            <div>
+
+                <h1>Student Details</h1>
+                {/* Accessing variables using JSX expression */}
+                <h2>Name : {name}</h2>
+                <h2>ID : {id}</h2>
+
+            </div>
+        );
+    }
+
+}
+
+export default Student;
+
+============================================================================================================================
+
+Q** Use a function inside the class Component and render the function inside the class and render the class in main
+
+import React, { Component } from "react";
+
+class Student extends Component {
+
+    // Parameterized function
+    displayStudent(name, id){
+        return(
+            <div>
+                <h2>Name : {name}</h2>
+                <h2>ID : {id}</h2>
+            </div>
+        );
+    }
+
+
+    render(){
+        return(
+            <div>
+
+                <h1>Student Details</h1>
+                {/* Calling parameterized function */}
+                {this.displayStudent("Shilpa", 101)}
+
+            </div>
+        );
+    }
+}
+
+export default Student;
+
+Nested Functions inside a Class Component
+-------------------------------------------
+-------------------------------------------
+import React, { Component } from "react";
+
+class Student extends Component {
+
+    displayStudent(name, id){
+        // Nested function
+        function displayBranch(branch){
+
+            return (
+                <h2>Branch : {branch}</h2>
+            );
+
+        }
+        return(
+            <div>
+
+                <h2>Name : {name}</h2>
+                <h2>ID : {id}</h2>
+                {displayBranch("AI")}
+
+            </div>
+        );
+    }
+
+
+    render(){
+        return(
+            <div>
+
+                <h1>Student Details</h1>
+                {this.displayStudent("Shilpa",101)}
+
+            </div>
+        );
+
+    }
+
+}
+
+export default Student;
 ============================================================================================================================
 
 Q7. Write a snippet of class component in different JSX file and access that in main executable file and display the output of both example class
 component and present class component at a time.
+
+Example.jsx
+------------
+import React, { Component } from "react";
+
+class Example extends Component {
+
+    render(){
+        return(
+            <div>
+                <h1>
+                    This is Example Class Component
+                </h1>
+            </div>
+        );
+    }
+}
+
+export default Example;
+
+
+Present.jsx
+-------------
+import React, { Component } from "react";
+
+
+class Present extends Component {
+    render(){
+        return(
+            <div>
+                <h1>
+                    This is Present Class Component
+                </h1>
+            </div>
+        );
+    }
+}
+export default Present;
 
 ============================================================================================================================
 
